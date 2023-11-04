@@ -7,7 +7,7 @@ import java.util.TreeMap;
 
 public class GameModel {
 
-    private String file;
+  //  private String file;
 
     private TreeMap<Integer, ArrayList<String>> lineMap;
 
@@ -22,16 +22,37 @@ public class GameModel {
     private String textbox_line;
     public GameModel(String filename) throws IOException{
         try(BufferedReader in = new BufferedReader(new FileReader(filename))){
+            String str = "";
             String line = in.readLine();
             String[] fields = line.split("\\s+");
+            this.lineMap = new TreeMap<Integer, ArrayList<String>>();
+            this.characters = new HashMap<String, Integer>();
+            int char_count = 0;
             while(in.ready()){
+                // make an array list
+                ArrayList<String> list = new ArrayList<>();
+                // loop through to add strings with 100 words or less to list
                 for(int i = 1; i < fields.length ; i ++){
-
+                    str = str + fields[i] + " ";
+                    if(i % 100 == 0){
+                        list.add(str);
+                    }
                 }
-             //   lineMap.put(Integer.parseInt(fields[0]), )
+                if(!characters.containsKey(fields[1])){
+                    char_count ++;
+                    characters.put(fields[1],char_count);
+                }
+                // add the last string
+                list.add(str);
+                // add this dialogue to lineMap
+                lineMap.put(Integer.parseInt(fields[0]),list);
             }
 
         }
+        this.dialogueID = 0;
+        this.lineID = 0;
+        this.speaker = "";
+        this.textbox_line = "";
     }
 
     String getDialogue(int choice) {
