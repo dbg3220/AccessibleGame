@@ -25,6 +25,9 @@ public class GameModel {
             String line = in.readLine();
             String[] fields = line.split("\\s+");
             while(in.ready()){
+                for(int i = 1; i < fields.length ; i ++){
+
+                }
              //   lineMap.put(Integer.parseInt(fields[0]), )
             }
 
