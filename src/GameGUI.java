@@ -2,6 +2,7 @@
 import java.util.Arrays;
 import java.util.List;
 
+import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -9,8 +10,10 @@ import javafx.geometry.Insets;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -20,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.scene.control.Button;
 import javafx.scene.text.Font;
+import javafx.application.Platform;
 
 public class GameGUI extends Application {
 
@@ -50,6 +54,12 @@ public class GameGUI extends Application {
     /** The label to communicate the dialogue to the player */
     private Label textBox;
 
+    /** Buttons to control game flow */
+    private Button reset, exit;
+
+    /** A speech generator to speak given text aloud for greater accessibility */
+    private SpeechGen gen;
+
     /**
      * Initialize all fields declared in class. {see above}
      */
@@ -65,24 +75,37 @@ public class GameGUI extends Application {
         c1Button = new Button();
         c1Button.setText("1");
         c1Button.setOnAction(e -> makeChoice1());
+        c1Button.setStyle("-fx-background-color: Green;");
+        setShadowEffect(c1Button);
 
         c2Button = new Button();
         c2Button.setText("2");
         c2Button.setOnAction(e -> makeChoice2());
+        c2Button.setStyle("-fx-background-color: Red;");
+        setShadowEffect(c2Button);
 
         nextButton = new Button();
         nextButton.setText("NEXT");
         nextButton.setOnAction(e -> selectNext());
+        setShadowEffect(nextButton);
+
+        reset = new Button("RESET");
+        reset.setOnAction(e -> selectReset());
+        setShadowEffect(reset);
+        exit = new Button("EXIT");
+        exit.setOnAction(e -> Platform.exit());
+        setShadowEffect(exit);
 
         hboxC = new HBox();
-        hboxC.getChildren().addAll(c1Button, c2Button);
+        hboxC.getChildren().addAll(reset, c1Button, c2Button, exit);
         hboxC.setAlignment(Pos.CENTER);
         HBox.setMargin(c1Button, new Insets(0, 50, height * 0.2, 0));
+        HBox.setMargin(c2Button, new Insets(0, 50, height * 0.2, 30));
 
         hboxNC = new HBox();
         hboxNC.getChildren().add(nextButton);
         hboxNC.setAlignment(Pos.CENTER);
-        HBox.setMargin(c2Button, new Insets(0, 50, height * 0.2, 30));
+        HBox.setMargin(nextButton, new Insets(0, 0, height * 0.2, 0));
 
         bp = new BorderPane();
 
@@ -90,6 +113,9 @@ public class GameGUI extends Application {
         // gameModel = new GameModel("");
 
         textBox = new Label();
+
+        gen = new SpeechGen();
+
     }
 
     /**
@@ -147,6 +173,14 @@ public class GameGUI extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Cleans up all assets that must be closed
+     */
+    @Override
+    public void stop() throws Exception {
+        gen.close();
+    }
+
     ///
     /// ACTION METHODS
     ///
@@ -158,7 +192,7 @@ public class GameGUI extends Application {
      */
     private void gameStart() {
         if (fontSize == -1) {
-            changeAllFont(height / 50);
+            changeAllFont(height / 20);
         }
         // get dialogue from the game
         // determine if the dialogue requests a choice
@@ -167,6 +201,10 @@ public class GameGUI extends Application {
         // for now assume there is a choice
         bp.setCenter(textBox);
         bp.setBottom(hboxC);
+        bp.setLeft(reset);
+        bp.setRight(exit);
+        BorderPane.setMargin(reset, new Insets(height * 0.01, 0, 0, width * 0.01));
+        BorderPane.setMargin(exit, new Insets(height * 0.01, width * 0.01, 0, 0));
     }
 
     /**
@@ -191,6 +229,17 @@ public class GameGUI extends Application {
     }
 
     /**
+     * Action to reset the game when the reset button is selected
+     */
+    private void selectReset(){
+        System.out.println("NEED TO IMPLEMENT!!!");
+    }
+
+    ///
+    ///
+    ///
+
+    /**
      * Takes a value as the new font size and resets all text components to that
      * size
      * 
@@ -203,5 +252,29 @@ public class GameGUI extends Application {
         c2Button.setFont(thisFont);
         nextButton.setFont(thisFont);
         textBox.setFont(thisFont);
+        reset.setFont(thisFont);
+        exit.setFont(thisFont);
+    }
+
+    /**
+     * Sets a shadow effect on the button its given
+     * @param button The button to change
+     */
+    private void setShadowEffect(Button button){
+        DropShadow d = new DropShadow();
+        button.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+            new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent e){
+                    button.setEffect(new DropShadow());
+                }
+            }
+        );
+        button.addEventHandler(MouseEvent.MOUSE_EXITED, 
+            new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent e){
+                    button.setEffect(null);
+                }
+            }
+        );
     }
 }
