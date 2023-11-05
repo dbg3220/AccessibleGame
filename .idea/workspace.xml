@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7e53dde-1d77-4874-985f-80b57fc78c3d" name="Changes" comment="Added Test.java for testing PTUI, PTUI.java is for testing GameModel.java. GameModel.java fixed.">
+    <list default="true" id="b7e53dde-1d77-4874-985f-80b57fc78c3d" name="Changes" comment="GameGUI fully works. need images">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699161250999</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="GameGUI fully works. need images">
+      <created>1699194859997</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699194859997</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -166,7 +172,8 @@
     <MESSAGE value="Fixed the GameModel.java to adjust dialogue and choices" />
     <MESSAGE value="Fixed public GameModel" />
     <MESSAGE value="Added Test.java for testing PTUI, PTUI.java is for testing GameModel.java. GameModel.java fixed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Test.java for testing PTUI, PTUI.java is for testing GameModel.java. GameModel.java fixed." />
+    <MESSAGE value="GameGUI fully works. need images" />
+    <option name="LAST_COMMIT_MESSAGE" value="GameGUI fully works. need images" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

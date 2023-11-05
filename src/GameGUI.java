@@ -16,10 +16,7 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
@@ -61,6 +58,8 @@ public class GameGUI extends Application {
 
     /** A speech generator to speak given text aloud for greater accessibility */
     private SpeechGen gen;
+
+    private Image image = new Image("C:\\Users\\jessi\\IdeaProjects\\AccessibleGameF\\Images\\Image.jpg");
 
     /**
      * Initialize all fields declared in class. {see above}
@@ -223,6 +222,8 @@ public class GameGUI extends Application {
         // for now assume there is a choice
         bp.setCenter(textBox);
         bp.setBottom(hboxC);
+        ImageView imageView = new ImageView(image);
+        textBox.setGraphic(imageView);
     }
 
     /**
