@@ -16,10 +16,7 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
@@ -61,6 +58,8 @@ public class GameGUI extends Application {
 
     /** A speech generator to speak given text aloud for greater accessibility */
     private SpeechGen gen;
+
+    private Image image = new Image("C:\\Users\\jessi\\IdeaProjects\\AccessibleGameF\\Images\\Image.jpg");
 
     /**
      * Initialize all fields declared in class. {see above}
@@ -223,6 +222,8 @@ public class GameGUI extends Application {
         // for now assume there is a choice
         bp.setCenter(textBox);
         bp.setBottom(hboxC);
+        ImageView imageView = new ImageView(image);
+        textBox.setGraphic(imageView);
     }
 
     /**
@@ -234,7 +235,12 @@ public class GameGUI extends Application {
             c2Button.setDisable(true);
         }
         if(gameModel.getChoice() == true){
-            textBox.setText(gameModel.getDialogue(1));
+            String str = gameModel.getDialogue(1);
+            this.gen.speak(str);
+            textBox.setText(str);
+            gameModel.setOptions(1);
+            c2Button.setText(gameModel.getOption1());
+
         }
         if(gameModel.getChoice() == false){
             c1Button.setDisable(true);
@@ -253,7 +259,13 @@ public class GameGUI extends Application {
             c2Button.setDisable(true);
         }
         if(gameModel.getChoice() == true){
-            textBox.setText(gameModel.getDialogue(2));
+            String str = gameModel.getDialogue(2);
+            this.gen.speak(str);
+            textBox.setText(str);
+            gameModel.setOptions(2);
+            c2Button.setText(gameModel.getOption2());
+
+
         }
         if(gameModel.getChoice() == false){
             c1Button.setDisable(true);
@@ -268,7 +280,9 @@ public class GameGUI extends Application {
     private void selectNext() {
         // TODO
         if(gameModel.getChoice() == false){
-            textBox.setText(gameModel.getDialogue(0));
+            String str = gameModel.getDialogue(0);
+            textBox.setText(str);
+
         }
         if(gameModel.getChoice() == true){
             nextButton.setDisable(true);
@@ -277,6 +291,7 @@ public class GameGUI extends Application {
             c1Button.setDisable(false);
             c2Button.setDisable(false);
         }
+        gen.speak(textBox.getText());
     }
 
     /**
