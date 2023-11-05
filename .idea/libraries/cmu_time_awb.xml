@@ -1,0 +1,23 @@
+<component name="libraryTable">
+  <library name="cmu_time_awb">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/freetts-1.2.2-bin/freetts-1.2/lib/cmu_time_awb.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/freetts-1.2.2-bin/freetts-1.2/lib/cmu_us_kal.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/freetts-1.2.2-bin/freetts-1.2/lib/en_us.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/freetts-1.2.2-bin/freetts-1.2/lib/freetts-jsapi10.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/freetts-1.2.2-bin/freetts-1.2/lib/freetts.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/freetts-1.2.2-bin/freetts-1.2/lib/jsapi.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/freetts-1.2.2-bin/freetts-1.2/lib/mbrola.jar!/" />
+      <root url="file://$USER_HOME$/Downloads" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://$USER_HOME$/Downloads/freetts-1.2.2-bin/freetts-1.2/javadoc" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$USER_HOME$/Downloads/Networking/src" />
+      <root url="file://$USER_HOME$/Downloads/recitation12" />
+      <root url="file://$USER_HOME$/Downloads" />
+    </SOURCES>
+    <jarDirectory url="file://$USER_HOME$/Downloads" recursive="false" type="SOURCES" />
+  </library>
+</component>
