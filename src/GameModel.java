@@ -158,10 +158,6 @@ public class GameModel {
          //   setOptions(choice);
         }
         System.out.print(dialogueID);
-        if (lineID >= lineMap.get(dialogueID).size()){
-            this.choice = true;
-            this.lineID = 0;
-        }
         ArrayList<String> str = lineMap.get(dialogueID);
         textbox_line = " " +str.get(lineID);
         lineID ++;

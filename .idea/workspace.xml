@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b7e53dde-1d77-4874-985f-80b57fc78c3d" name="Changes" comment="Added Documentation to GameModel and added a combobox to GameModel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +56,7 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.PTUI">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="AccessibleGame" />
@@ -159,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699196757766</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added Documentation to GameModel and added a combobox to GameModel">
+      <created>1699199513872</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1699199513872</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -190,7 +196,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/GameModel.java</url>
-          <line>226</line>
+          <line>222</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
