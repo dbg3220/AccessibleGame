@@ -1,7 +1,8 @@
 
 import javax.speech.Central;
 import javax.speech.synthesis.*;
-import java.util.Locale;
+
+import java.util.*;
 
 /**
  * Public class to write text to and immediately hear the
@@ -12,8 +13,8 @@ public class SpeechGen {
     /** The synthesizer to speak the text */
     private Synthesizer synthesizer;
 
-    /** The message to speak */
-    private String message;
+    /** The queue containing strings to speak */
+    private List<String> messageQueue;
 
     public SpeechGen(){
         try {
@@ -39,6 +40,7 @@ public class SpeechGen {
             System.err.println("Error in creating a text to speech generator");
             System.exit(1);
         }
+        messageQueue = new ArrayList<>();
     }
 
     /**
@@ -46,7 +48,7 @@ public class SpeechGen {
      * @param s The string to speak
      */
     public void speak(String s){
-        message = s;
+        messageQueue.add(s);
         Thread t = new Thread(new ThreadedSpeak());
         t.start();
     }
@@ -55,9 +57,9 @@ public class SpeechGen {
 
         @Override
         public void run() {
-            synchronized(message){
+            synchronized(messageQueue){
                 try{
-                    synthesizer.speakPlainText(message, null);
+                    synthesizer.speakPlainText(messageQueue.remove(0), null);
                     synthesizer.waitEngineState(Synthesizer.QUEUE_EMPTY);
                 } catch (Exception e){}
             }
@@ -69,9 +71,11 @@ public class SpeechGen {
      * Call this method when you are done using the synthesizer
      */
     public void close(){
-        try{
-            synthesizer.deallocate();
-        } catch(Exception e){}
+        synchronized(messageQueue){
+            try{
+                synthesizer.deallocate();
+            } catch(Exception e){}
+        }
     }
 
     /**
