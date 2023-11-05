@@ -1,6 +1,8 @@
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,6 +12,7 @@ import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.geometry.Insets;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
@@ -17,6 +20,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
@@ -61,6 +65,7 @@ public class GameGUI extends Application {
 
     private Image image = new Image("C:\\Users\\jessi\\IdeaProjects\\AccessibleGameF\\Images\\Image.jpg");
 
+    private ComboBox<String> colorBox = new ComboBox<>();
     /**
      * Initialize all fields declared in class. {see above}
      */
@@ -72,6 +77,10 @@ public class GameGUI extends Application {
         height = bounds.getHeight();
 
         fontSize = -1;// checked value
+
+        colorBox.getItems().addAll("Red", "Blue", "Gray", "Green", "White");
+        colorBox.setOnAction(e -> changeColor());
+
 
         c1Button = new Button();
         c1Button.setText("1");
@@ -101,7 +110,7 @@ public class GameGUI extends Application {
         setShadowEffect(exit);
 
         hboxC = new HBox();
-        hboxC.getChildren().addAll(reset, c1Button, c2Button, exit, nextButton);
+        hboxC.getChildren().addAll(reset,colorBox , c1Button, c2Button, exit, nextButton);
         hboxC.setAlignment(Pos.CENTER);
         HBox.setMargin(c1Button, new Insets(0, 50, height * 0.2, 0));
         HBox.setMargin(c2Button, new Insets(0, 50, height * 0.2, 30));
@@ -308,6 +317,31 @@ public class GameGUI extends Application {
 
     ///
     ///
+    /**
+     * select the background color
+     */
+    private void changeColor(){
+        String selected = colorBox.getValue();
+        //"Red", "Blue", "Gray", "Green"
+        javafx.scene.paint.Color color = javafx.scene.paint.Color.WHITE;
+        if(selected == "White" ){
+            color = javafx.scene.paint.Color.WHITE;
+        } else if (selected == "Blue") {
+            color = javafx.scene.paint.Color.BLUE;
+        } else if (selected == "Gray") {
+            color = javafx.scene.paint.Color.GRAY;
+        } else if (selected =="Green") {
+            color = Color.GREEN;
+        } else if (selected == "Red") {
+            color = Color.RED;
+        }
+        BackgroundFill backgroundFill = new BackgroundFill(color, null, null);
+        Background background = new Background(backgroundFill);
+        bp.setBackground(background);
+
+
+    }
+
     ///
 
     /**

@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7e53dde-1d77-4874-985f-80b57fc78c3d" name="Changes" comment="GameGUI fully works. need images">
+    <list default="true" id="b7e53dde-1d77-4874-985f-80b57fc78c3d" name="Changes" comment="Added Documentation to GameModel and added a combobox to GameModel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699194859997</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Image Added">
+      <created>1699196757766</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699196757766</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -173,14 +181,16 @@
     <MESSAGE value="Fixed public GameModel" />
     <MESSAGE value="Added Test.java for testing PTUI, PTUI.java is for testing GameModel.java. GameModel.java fixed." />
     <MESSAGE value="GameGUI fully works. need images" />
-    <option name="LAST_COMMIT_MESSAGE" value="GameGUI fully works. need images" />
+    <MESSAGE value="Image Added" />
+    <MESSAGE value="Added Documentation to GameModel and added a combobox to GameModel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Documentation to GameModel and added a combobox to GameModel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/GameModel.java</url>
-          <line>220</line>
+          <line>226</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">

@@ -140,6 +140,14 @@ public class GameModel {
         this.choice = false;
     }
 
+    /**
+     *  getDialogue() - gets the current dialogue that the user is one.
+     *                  if input is 0, keep displaying the next string in this dialogue
+     *                 If input is 1, display the dialogue of option 1, else display option 2.
+     *                 sets the game state and the choice fields each call.
+     * @param choice 0,1,2 whether to stay on dialogue, go dialogue 1, or 2
+     * @return String of dialogue
+     */
     String getDialogue(int choice) {
 
         // update the dialogue ID number
@@ -168,16 +176,10 @@ public class GameModel {
     }
 
 
-
-
-    void setSpeaker(String name){
-        speaker = name;
-    }
-
-    String getSpeaker(){
-        return speaker;
-    }
-
+    /**
+     * sets the choice. Checks the dialogue id and gets the size of the array
+     * if line size is greater than size -1, set choice to true, else false.
+     */
     void setChoice(){
         ArrayList<String> x = lineMap.get(dialogueID);
         int size = x.size();
@@ -192,18 +194,18 @@ public class GameModel {
 
     }
 
+    /**
+     * checks the choice
+     * @return choice
+     */
     boolean getChoice(){
         return choice;
     }
 
-    void setFontSize(String str){
-        fontSize = Integer.parseInt(str);
-    }
-
-    Integer getFontSize(){
-        return fontSize;
-    }
-
+    /**
+     * set the options Id based on whether num is 1 or 2
+     * @param num choice the user made
+     */
     void setOptions(int num){
         if(num == 0){
 
@@ -215,6 +217,10 @@ public class GameModel {
     }
 
 
+    /**
+     * returns the option1 string
+     * @return
+     */
     String getOption1(){
       //  String str = String.valueOf(options) + "1";
       //  int temp  = Integer.parseInt(str);
@@ -225,6 +231,10 @@ public class GameModel {
         return label;
     }
 
+    /**
+     * returns the option2 string
+     * @return
+     */
     String getOption2(){
       //  String str = String.valueOf(options) + "2";
         //int temp  = Integer.parseInt(str);
@@ -234,14 +244,25 @@ public class GameModel {
         return label;
     }
 
+    /**
+     * return gameState
+     * @return
+     */
     public boolean getGameState(){
         return this.end;
     }
 
+    /**
+     * set the game state
+     * @param state
+     */
     public void setGameState(boolean state){
         this.end = state;
     }
 
+    /**
+     * resets the game
+     */
     public void reset(){
         this.dialogueID = 1;
         this.lineID = 0;
