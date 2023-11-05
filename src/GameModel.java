@@ -3,6 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.TreeMap;
 
 public class GameModel {
@@ -17,7 +18,7 @@ public class GameModel {
 
     private TreeMap<Integer, String[]> optionMap;
 
-    private HashMap<String, Integer> characters;
+    private HashMap<Integer, String> endings;
 
     private Integer dialogueID;
 
@@ -26,14 +27,14 @@ public class GameModel {
     private String speaker;
 
     private String textbox_line;
+
+    private boolean end;
     public GameModel(String filename, String file2) throws IOException{
         try(BufferedReader in = new BufferedReader(new FileReader(filename))){
             String str = "";
             String line = in.readLine();
             String[] fields = line.split("\\s+");
             this.lineMap = new TreeMap<Integer, ArrayList<String>>();
-            this.characters = new HashMap<String, Integer>();
-            int char_count = 0;
             while(in.ready()){
                 // make an array list
                 ArrayList<String> list = new ArrayList<>();
@@ -44,14 +45,12 @@ public class GameModel {
                         list.add(str);
                     }
                 }
-                if(!characters.containsKey(fields[1])){
-                    char_count ++;
-                    characters.put(fields[1],char_count);
-                }
                 // add the last string
                 list.add(str);
                 // add this dialogue to lineMap
                 lineMap.put(Integer.parseInt(fields[0]),list);
+                fields = in.readLine().split("\\s+");
+
             }
 
         }
@@ -60,19 +59,21 @@ public class GameModel {
             this.optionMap = new TreeMap<Integer, String[]>();
             //split line
             String[] f = in2.readLine().split("\\s+");
-            int count = 0;
+           // int count = 0;
             while(in2.ready()){
-                int num = 1;
+                int num = 0;
                 String Op1 = "";
                 String Op2 = "";
                 String[] optList = new String[2];
                 // loop to assign ID, and strings
+                if(optionMap.containsKey(f[0])){
+                    endings.put(Integer.parseInt(f[0]), f[1]);
+                    continue;
+                }
                 for (int i = 1; i < f.length; i ++){
                     // check which string to append to
-                    if(f[i] == "1") {
-                        num = 1;
-                    } else if (f[i] == "2") {
-                        num = 2;
+                    if(f[i].matches("-?\\d+")){
+                        num ++;
                     }
                     if(num == 1){
                         Op1 += f[i] + " ";
@@ -82,7 +83,8 @@ public class GameModel {
                 }
                 optList[0] = Op1;
                 optList[1] = Op2;
-                optionMap.put(Integer.parseInt(f[count]),optList);
+                optionMap.put(Integer.parseInt(f[0]),optList);
+                f = in2.readLine().split("\\s+");
             }
         }
         this.dialogueID = 0;
@@ -90,6 +92,7 @@ public class GameModel {
         this.speaker = "";
         this.textbox_line = "";
         this.choice = false;
+        this.end = false;
     }
 
     String setDialogue(int choice) {
@@ -135,6 +138,9 @@ public class GameModel {
         }else {
             this.choice = false;
         }
+        if(endings.containsKey(options)){
+            this.end = true;
+        };
 
     }
 
@@ -160,6 +166,10 @@ public class GameModel {
         }
     }
 
+    boolean isEnd(){
+        return this.end;
+    }
+
     String getOption1(){
         return this.optionMap.get(options)[0];
     }
@@ -167,6 +177,9 @@ public class GameModel {
     String getOption2(){
         return this.optionMap.get(options)[1];
     }
+
+
+
 
 
 
