@@ -234,7 +234,12 @@ public class GameGUI extends Application {
             c2Button.setDisable(true);
         }
         if(gameModel.getChoice() == true){
-            textBox.setText(gameModel.getDialogue(1));
+            String str = gameModel.getDialogue(1);
+            this.gen.speak(str);
+            textBox.setText(str);
+            gameModel.setOptions(1);
+            c2Button.setText(gameModel.getOption1());
+
         }
         if(gameModel.getChoice() == false){
             c1Button.setDisable(true);
@@ -253,7 +258,13 @@ public class GameGUI extends Application {
             c2Button.setDisable(true);
         }
         if(gameModel.getChoice() == true){
-            textBox.setText(gameModel.getDialogue(2));
+            String str = gameModel.getDialogue(2);
+            this.gen.speak(str);
+            textBox.setText(str);
+            gameModel.setOptions(2);
+            c2Button.setText(gameModel.getOption2());
+
+
         }
         if(gameModel.getChoice() == false){
             c1Button.setDisable(true);
@@ -268,7 +279,9 @@ public class GameGUI extends Application {
     private void selectNext() {
         // TODO
         if(gameModel.getChoice() == false){
-            textBox.setText(gameModel.getDialogue(0));
+            String str = gameModel.getDialogue(0);
+            textBox.setText(str);
+
         }
         if(gameModel.getChoice() == true){
             nextButton.setDisable(true);
@@ -277,6 +290,7 @@ public class GameGUI extends Application {
             c1Button.setDisable(false);
             c2Button.setDisable(false);
         }
+        gen.speak(textBox.getText());
     }
 
     /**

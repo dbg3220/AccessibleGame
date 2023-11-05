@@ -39,7 +39,7 @@ public class GameModel {
     private boolean end;
 
     /**
-     * GameModel() - creates a GameModel Object
+     * GameModel() - creates a GameModel Object and reads the
      *
      * @param filename: the file for dialogue
      * @param file2 : the file for choices
