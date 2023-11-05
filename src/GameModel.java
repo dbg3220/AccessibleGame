@@ -35,7 +35,12 @@ public class GameModel {
             String line = in.readLine();
             String[] fields = line.split("\\s+");
             this.lineMap = new TreeMap<Integer, ArrayList<String>>();
+            int count = 0;
             while(in.ready()){
+                if(count % 2 == 1){
+                    in.readLine();
+                    continue;
+                }
                 // make an array list
                 ArrayList<String> list = new ArrayList<>();
                 // loop through to add strings with 100 words or less to list
@@ -50,6 +55,7 @@ public class GameModel {
                 // add this dialogue to lineMap
                 lineMap.put(Integer.parseInt(fields[0]),list);
                 fields = in.readLine().split("\\s+");
+                count ++;
 
             }
 
@@ -59,14 +65,21 @@ public class GameModel {
             this.optionMap = new TreeMap<Integer, String[]>();
             //split line
             String[] f = in2.readLine().split("\\s+");
-           // int count = 0;
+            int count = 0;
+            int line_count = 0;
             while(in2.ready()){
+                if(count%2 == 1){
+                    in2.readLine();
+                    continue;
+                }
                 int num = 0;
                 String Op1 = "";
                 String Op2 = "";
                 String[] optList = new String[2];
+
+                int first = Integer.parseInt(f[0]);
                 // loop to assign ID, and strings
-                if(optionMap.containsKey(f[0])){
+                if(optionMap.containsKey(first)){
                     endings.put(Integer.parseInt(f[0]), f[1]);
                     continue;
                 }
@@ -85,6 +98,9 @@ public class GameModel {
                 optList[1] = Op2;
                 optionMap.put(Integer.parseInt(f[0]),optList);
                 f = in2.readLine().split("\\s+");
+                count ++;
+                line_count++;
+                System.out.print(Op1 + Op2);
             }
         }
         this.dialogueID = 0;
