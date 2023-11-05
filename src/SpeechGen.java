@@ -12,6 +12,9 @@ public class SpeechGen {
     /** The synthesizer to speak the text */
     private Synthesizer synthesizer;
 
+    /** The message to speak */
+    private String message;
+
     public SpeechGen(){
         try {
             // Set property as Kevin Dictionary
@@ -39,14 +42,27 @@ public class SpeechGen {
     }
 
     /**
-     * Speaks a string of valid english text
+     * Speaks a string of valid english text using threads to not interrupt main program
      * @param s The string to speak
      */
     public void speak(String s){
-        try{
-        synthesizer.speakPlainText(s, null);
-        synthesizer.waitEngineState(Synthesizer.QUEUE_EMPTY);
-        } catch (Exception e){}
+        message = s;
+        Thread t = new Thread(new ThreadedSpeak());
+        t.start();
+    }
+
+    class ThreadedSpeak implements Runnable{
+
+        @Override
+        public void run() {
+            synchronized(message){
+                try{
+                    synthesizer.speakPlainText(message, null);
+                    synthesizer.waitEngineState(Synthesizer.QUEUE_EMPTY);
+                } catch (Exception e){}
+            }
+        }
+        
     }
 
     /**

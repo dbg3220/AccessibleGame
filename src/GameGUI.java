@@ -132,16 +132,16 @@ public class GameGUI extends Application {
     @Override
     public void start(Stage primaryStage) {
         // set up starting message
-        Label l = new Label("Welcome to our accessible game. To start off select a fontsize.\n"
+        String message = "Welcome to our accessible game. To start off select a fontsize.\n"
                 + "If you don't then we'll use a default one that you might not like!!\n"
-                + "(P.S. please keep the size reasonable)");
+                + "(P.S. please keep the size reasonable)";
+        Label l = new Label(message);
         l.setFont(new Font(30));
         l.setAlignment(Pos.CENTER);
 
         // Create field for numbers
         TextField fontInput = new TextField();
-        fontInput.minHeight(20);
-        fontInput.maxWidth(10);
+        fontInput.setFont(new Font(40));
 
         GridPane gp = new GridPane();
         gp.add(l, 0, 0);
@@ -164,13 +164,19 @@ public class GameGUI extends Application {
         startButton.setMaxWidth(width * 0.1);
         startButton.setMinHeight(height * 0.1);
         startButton.setMaxHeight(height * 0.1);
-        startButton.setFont(new Font(height / 50));// a good default font size
+        startButton.setFont(new Font(height / 40));// a good default font size
+        startButton.setStyle("-fx-background-color: Blue; -fx-color: Black");
 
         // place start button
         HBox startButtonBox = new HBox(startButton);
         HBox.setMargin(startButton, new Insets(0, 0, height * 0.2, 0));
         startButtonBox.setAlignment(Pos.CENTER);
         bp.setBottom(startButtonBox);
+
+        bp.setLeft(reset);
+        bp.setRight(exit);
+        BorderPane.setMargin(reset, new Insets(height * 0.01, 0, 0, width * 0.01));
+        BorderPane.setMargin(exit, new Insets(height * 0.01, width * 0.01, 0, 0));
 
         // setup scene
         primaryStage.setMinWidth(0.33 * width);
@@ -179,6 +185,8 @@ public class GameGUI extends Application {
         primaryStage.setFullScreen(true);
         primaryStage.setTitle("DIALOGUE BONANZA");
         primaryStage.show();
+
+        gen.speak(message + "Select blue to start the game");
     }
 
     /**
@@ -209,10 +217,6 @@ public class GameGUI extends Application {
         // for now assume there is a choice
         bp.setCenter(textBox);
         bp.setBottom(hboxC);
-        bp.setLeft(reset);
-        bp.setRight(exit);
-        BorderPane.setMargin(reset, new Insets(height * 0.01, 0, 0, width * 0.01));
-        BorderPane.setMargin(exit, new Insets(height * 0.01, width * 0.01, 0, 0));
     }
 
     /**
