@@ -1,4 +1,5 @@
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -110,7 +111,14 @@ public class GameGUI extends Application {
         bp = new BorderPane();
 
         // When game model is fully implemented change this line
-        // gameModel = new GameModel("");
+        List<String> args = getParameters().getRaw();
+        try {
+            gameModel = new GameModel(args.get(0), args.get(1));
+        } catch (IOException e){
+            System.out.println("Unable to create GameModel object from files");
+            e.printStackTrace();
+            System.exit(1);
+        }
 
         textBox = new Label();
 
