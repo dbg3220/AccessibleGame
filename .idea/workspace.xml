@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7e53dde-1d77-4874-985f-80b57fc78c3d" name="Changes" comment="Fixed public GameModel">
-      <change afterPath="$PROJECT_DIR$/src/PTUI.java" afterDir="false" />
+    <list default="true" id="b7e53dde-1d77-4874-985f-80b57fc78c3d" name="Changes" comment="Added Test.java for testing PTUI, PTUI.java is for testing GameModel.java. GameModel.java fixed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Text file/enChoice.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Text file/enChoice.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameModel.java" afterDir="false" />
     </list>
@@ -59,7 +57,7 @@
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.PTUI">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="AccessibleGame" />
@@ -140,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699146148236</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added Test.java for testing PTUI, PTUI.java is for testing GameModel.java. GameModel.java fixed.">
+      <created>1699161250999</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699161250999</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,7 +165,8 @@
     <MESSAGE value="Added Choice and Dialogue text files" />
     <MESSAGE value="Fixed the GameModel.java to adjust dialogue and choices" />
     <MESSAGE value="Fixed public GameModel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed public GameModel" />
+    <MESSAGE value="Added Test.java for testing PTUI, PTUI.java is for testing GameModel.java. GameModel.java fixed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Test.java for testing PTUI, PTUI.java is for testing GameModel.java. GameModel.java fixed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

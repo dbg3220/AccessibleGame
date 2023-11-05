@@ -62,7 +62,7 @@ public class GameModel {
                 // loop through to add strings with 100 words or less to list
                 for(int i = 1; i < fields.length ; i ++){
                     str = str + fields[i] + " ";
-                    if(i % 50 == 0){
+                    if(i % 1000 == 0){
                         list.add(str);
                         str = "";
                     }
@@ -240,6 +240,17 @@ public class GameModel {
 
     public void setGameState(boolean state){
         this.end = state;
+    }
+
+    public void reset(){
+        this.dialogueID = 1;
+        this.lineID = 0;
+        this.speaker = "";
+        this.textbox_line = "";
+        this.choice = false;
+        this.end = false;
+        this.options = 1;
+        this.choice = false;
     }
 
 

@@ -79,16 +79,19 @@ public class GameGUI extends Application {
         c1Button.setOnAction(e -> makeChoice1());
         c1Button.setStyle("-fx-background-color: Green;");
         setShadowEffect(c1Button);
+        c1Button.setDisable(true);
 
         c2Button = new Button();
         c2Button.setText("2");
         c2Button.setOnAction(e -> makeChoice2());
         c2Button.setStyle("-fx-background-color: Red;");
         setShadowEffect(c2Button);
+        c2Button.setDisable(true);
 
         nextButton = new Button();
         nextButton.setText("NEXT");
         nextButton.setOnAction(e -> selectNext());
+        nextButton.setStyle("-fx-background-color: Blue;");
         setShadowEffect(nextButton);
 
         reset = new Button("RESET");
@@ -99,13 +102,13 @@ public class GameGUI extends Application {
         setShadowEffect(exit);
 
         hboxC = new HBox();
-        hboxC.getChildren().addAll(reset, c1Button, c2Button, exit);
+        hboxC.getChildren().addAll(reset, c1Button, c2Button, exit, nextButton);
         hboxC.setAlignment(Pos.CENTER);
         HBox.setMargin(c1Button, new Insets(0, 50, height * 0.2, 0));
         HBox.setMargin(c2Button, new Insets(0, 50, height * 0.2, 30));
 
         hboxNC = new HBox();
-        hboxNC.getChildren().add(nextButton);
+      //  hboxNC.getChildren().add(nextButton);
         hboxNC.setAlignment(Pos.CENTER);
         HBox.setMargin(nextButton, new Insets(0, 0, height * 0.2, 0));
 
@@ -122,6 +125,7 @@ public class GameGUI extends Application {
         }
 
         textBox = new Label();
+        textBox.setWrapText(true);
 
         gen = new SpeechGen();
 
@@ -210,7 +214,7 @@ public class GameGUI extends Application {
      */
     private void gameStart() {
         if (fontSize == -1) {
-            changeAllFont(height / 20);
+            changeAllFont(height / 50);
         }
         // get dialogue from the game
         // determine if the dialogue requests a choice
@@ -225,9 +229,18 @@ public class GameGUI extends Application {
      * Selects the first choice
      */
     private void makeChoice1() {
-        textBox.setText(gameModel.getDialogue(1));
-        c1Button.setText(gameModel.getOption1());
-
+        if(gameModel.getGameState() == true){
+            c1Button.setDisable(true);
+            c2Button.setDisable(true);
+        }
+        if(gameModel.getChoice() == true){
+            textBox.setText(gameModel.getDialogue(1));
+        }
+        if(gameModel.getChoice() == false){
+            c1Button.setDisable(true);
+            c2Button.setDisable(true);
+            nextButton.setDisable(false);
+        }
     }
 
     /**
@@ -235,8 +248,18 @@ public class GameGUI extends Application {
      */
     private void makeChoice2() {
         // TODO
-        textBox.setText(gameModel.getDialogue(2));
-        c2Button.setText(gameModel.getOption2());
+        if(gameModel.getGameState() == true){
+            c1Button.setDisable(true);
+            c2Button.setDisable(true);
+        }
+        if(gameModel.getChoice() == true){
+            textBox.setText(gameModel.getDialogue(2));
+        }
+        if(gameModel.getChoice() == false){
+            c1Button.setDisable(true);
+            c2Button.setDisable(true);
+            nextButton.setDisable(false);
+        }
     }
 
     /**
@@ -244,7 +267,16 @@ public class GameGUI extends Application {
      */
     private void selectNext() {
         // TODO
-        textBox.setText(gameModel.getDialogue(0));
+        if(gameModel.getChoice() == false){
+            textBox.setText(gameModel.getDialogue(0));
+        }
+        if(gameModel.getChoice() == true){
+            nextButton.setDisable(true);
+            c1Button.setText(gameModel.getOption1());
+            c2Button.setText(gameModel.getOption2());
+            c1Button.setDisable(false);
+            c2Button.setDisable(false);
+        }
     }
 
     /**
@@ -252,6 +284,11 @@ public class GameGUI extends Application {
      */
     private void selectReset(){
         System.out.println("NEED TO IMPLEMENT!!!");
+        gameModel.reset();
+        textBox.setText("");
+        c1Button.setDisable(true);
+        c2Button.setDisable(true);
+        nextButton.setDisable(false);
     }
 
     ///
