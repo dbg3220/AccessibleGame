@@ -2,6 +2,7 @@
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -159,6 +160,7 @@ public class GameGUI extends Application {
                 }
             } catch (Exception x){}
             gameStart();
+            textBox.setText(gameModel.getDialogue(0));
         });
         startButton.setMinWidth(width * 0.1);
         startButton.setMaxWidth(width * 0.1);
@@ -219,7 +221,9 @@ public class GameGUI extends Application {
      * Selects the first choice
      */
     private void makeChoice1() {
-        // TODO
+        textBox.setText(gameModel.getDialogue(1));
+        c1Button.setText(gameModel.getOption1());
+
     }
 
     /**
@@ -227,6 +231,8 @@ public class GameGUI extends Application {
      */
     private void makeChoice2() {
         // TODO
+        textBox.setText(gameModel.getDialogue(2));
+        c2Button.setText(gameModel.getOption2());
     }
 
     /**
@@ -234,6 +240,7 @@ public class GameGUI extends Application {
      */
     private void selectNext() {
         // TODO
+        textBox.setText(gameModel.getDialogue(0));
     }
 
     /**

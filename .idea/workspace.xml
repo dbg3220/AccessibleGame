@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7e53dde-1d77-4874-985f-80b57fc78c3d" name="Changes" comment="Fixed the GameModel.java to adjust dialogue and choices">
+    <list default="true" id="b7e53dde-1d77-4874-985f-80b57fc78c3d" name="Changes" comment="Fixed public GameModel">
+      <change afterPath="$PROJECT_DIR$/src/PTUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Text file/enChoice.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Text file/enChoice.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,13 +53,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/jessi/Downloads/freetts-1.2.2-bin/freetts-1.2/lib/mbrola.jar",
+    "last_opened_file_path": "C:/Users/jessi/IdeaProjects/project2-2-chess-hoppers-fried-chickens",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.PTUI">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="AccessibleGame" />
@@ -65,6 +68,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PTUI" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <module name="AccessibleGame" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;Text file/enDialogue.txt&quot; &quot;Text file/enChoice.txt&quot;" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.PTUI" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -118,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699144147582</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fixed public GameModel">
+      <created>1699146148236</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699146148236</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,31 +159,21 @@
     <MESSAGE value="Finished GameModel.java" />
     <MESSAGE value="Added Choice and Dialogue text files" />
     <MESSAGE value="Fixed the GameModel.java to adjust dialogue and choices" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the GameModel.java to adjust dialogue and choices" />
+    <MESSAGE value="Fixed public GameModel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed public GameModel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/GameModel.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="4" />
+          <line>220</line>
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/GameModel.java</url>
-          <line>79</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/GameModel.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/GameModel.java</url>
-          <line>99</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="10" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

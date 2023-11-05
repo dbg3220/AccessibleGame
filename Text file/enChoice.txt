@@ -1,24 +1,26 @@
-111 Keep walking down the hall 112 Go on the hall to the right
+1 1 Left 2 Right
 
-121 Keep walking down the hall 122 Open the door
+11 1 Keep walking down the hall 2 Go on the hall to the right
 
-1111 Keep going down the hall 1112 Go into the room
+12 1 Keep walking down the hall 2 Open the door
 
-1121 Keep going down the corridor 1122 Rest on the bench a little longer
+111 1 Keep going down the hall 2 Go into the room
 
-1211 Keep going down the corridor 1212 Go to the left corridor
+112 1 Keep going down the corridor 2 Rest on the bench a little longer
+
+121 1 Keep going down the corridor 2 Go to the left corridor
 
 122 Dead
 
-11111 Exit 11112 Check out the noise
+1111 1 Exit 2 Check out the noise
 
-11121 Venture through the door 11122 Stay and explore
+1112 1 Venture through the door 2 Stay and explore
 
-11211 Turn back  11212 Keep going
+1121 1 Turn back  2 Keep going
 
 1122 Dead
 
-12111 Exit 12112 Head into the winding corridor
+1211 1 Exit 2 Head into the winding corridor
 
 1212 Dead
 
